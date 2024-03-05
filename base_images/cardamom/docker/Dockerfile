@@ -8,7 +8,7 @@ WORKDIR /projects
 RUN sed -i -e 's/\/root/\/projects/g' /etc/passwd
 
 RUN apt-get update \
-    && apt-get install -y git
+    && apt-get install -y git parallel
 
 COPY ./environment.yml /tmp
 RUN conda env create -y -f "/tmp/environment.yml" \
